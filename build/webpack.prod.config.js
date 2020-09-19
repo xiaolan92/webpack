@@ -21,31 +21,18 @@ module.exports = Merge(Baseconfig,{
             name:true,
             cacheGroups:{
                 /**
-                 *  提取公共js模块
+                 *  提取第三方库
                  */
-                commons:{
-                    test:path.resolve(__dirname,"../src/js/common"),
-                    name:"js/commons",
-                    priority: 10,
-                    enforce: true,
-                    reuseExistingChunk:true,
-                    chunks:"initial"
-                },
-                vendor: {
+                vendors: {
                     name: "js/vendor",
                     test: /[\\/]node_modules[\\/]/,
                     chunks: "all",
                     priority: 20
                 },
-                /**
-                 * 提取css|sass|scss到单一文件
-                 */
-                styles: {
-                    name: "css/styles",
-                    test: /\.(c|sa|sc)ss$/,
-                    chunks: "all",
-                    enforce: true,
-                    priority: 30
+                default: {
+                    minChunks: 2,
+                    priority: -20,
+                    reuseExistingChunk: true
                 }
 
             }

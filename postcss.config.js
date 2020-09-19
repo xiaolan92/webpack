@@ -12,11 +12,11 @@ module.exports = {
             minPixelValue:1,
             mediaQuery:false
         }*/
-        "postcss-pxtorem":{
-            rootValue:16,
-            propList:["*"],
-            mediaQuery:false,
-            minPixeValue:0
-        }
+        // "postcss-pxtorem":{
+        //     rootValue:16,
+        //     propList:["*"],
+        //     mediaQuery:false,
+        //     minPixeValue:0
+        // }
     }
 };

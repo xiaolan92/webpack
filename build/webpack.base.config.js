@@ -10,13 +10,8 @@ const Webpack = require("webpack"),
     HappyPack = require("happypack"),
     HardSourceWebpackPlugin = require("hard-source-webpack-plugin"),
     BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
-    CompressionPlugin = require('compression-webpack-plugin'),
-    rewritePattern = require("regexpu-core");
-    
-rewritePattern('\\p{Unified_Ideograph}', 'u', {
-    'unicodePropertyEscape': true,
-    'useUnicodeFlag': false
-});
+    CompressionPlugin = require('compression-webpack-plugin');
+
 
 
 
@@ -156,8 +151,8 @@ rewritePattern('\\p{Unified_Ideograph}', 'u', {
 
         resolve: {
             alias: {
-                jquery$: "jquery/src/jquery.js",
-                vue$: "vue/dist/vue.esm.js",
+                "@":path.resolve(__dirname,"../src"),
+                "vue$": "vue/dist/vue.esm.js",
             },
 
             extensions: [".js",".json",".vue",".css",".scss",".sass"]

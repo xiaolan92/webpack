@@ -22,14 +22,6 @@ const router = new VueRouter({
             meta:{
                 title:"首页"
             }
-        },{
-            path:"/login",
-            component: () => import(/* webpackChunkName:"login"  */ "../views/login/login.vue"),
-            name:"login",
-            meta:{
-                title:"登陆"
-            }
-            
         }
     ],
     scrollBehavior(to, from, savedPosition){
@@ -48,6 +40,7 @@ router.beforeEach((to,from,next) => {
         if(store.getters.token || localStorage.getItem("token")){
             if(!store.state.userInfo){
                 store.dispatch("setUserInfo").then(() => {
+                    // eslint-disable-next-line promise/no-callback-in-promise
                     next();
                     return;
 
