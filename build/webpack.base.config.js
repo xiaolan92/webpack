@@ -166,7 +166,6 @@ const Webpack = require("webpack"),
                 manifest:require("../dist/lib/lib.manifest.json")
             }),
             new Webpack.ProvidePlugin({
-                $:"jquery"
             }),
             new MiniCssExtractPlugin({
                 filename: "css/[name].[hash:8].css",
