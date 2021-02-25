@@ -1,0 +1,50 @@
+{
+    "include": [
+        "src/*",
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ],
+    "compilerOptions": {
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "types": [
+            "node"
+        ],
+        "outDir": "./",
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "strictFunctionTypes": false,
+        "removeComments": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "allowJs": true,
+        "module": "es2015",
+        "target": "ES5",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ES5",
+            "ES6",
+            "ES7",
+            "ES2018",
+            "ESNext",
+            "ES2015.promise",
+            "ES2015.Core",
+            "ES2015.Iterable",
+            "ES2016.Array.Include",
+            "ES2017.object",
+            "ES2018.RegExp",
+            "ESNext.Array"
+        ],
+        "sourceMap": true,
+        "pretty": true
+    },
+    
+}

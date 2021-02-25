@@ -1,0 +1,84 @@
+{
+  "root": true,
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion":2020,
+    "sourceType": "module",
+    "ecmaFeatures":{
+      "jsx": true,
+      "globalReturn":true,
+      "impliedStrict":true
+    }
+  },
+  "extends": ["eslint:recommended","plugin:vue/strongly-recommended","plugin:promise/recommended"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "commonjs": true,
+    "amd": true
+  },
+  "plugins":[
+    "vue",
+    "html",
+    "promise",
+    "typescript"
+  ],
+  "rules": {
+    "indent": "warn",
+    "quotes": "warn",
+    "require-jsdoc":"error",
+    "semi": ["error", "always"],
+    "no-debugger":"off",
+    "no-console": "off",
+    "accessor-pairs":"warn",
+    "block-scoped-var":"error",
+    "class-methods-use-this":"error",
+    "consistent-return":"warn",
+    "curly":"warn",
+    "default-case":"error",
+    "no-caller":"error",
+    "eqeqeq":"error",
+    "no-alert":"off",
+    "no-else-return":"warn",
+    "no-empty-function":"error",
+    "no-eq-null":"error",
+    "no-eval":"error",
+    "no-lone-blocks":"error",
+    "no-floating-decimal":"warn",
+    "no-loop-func":"error",
+    "no-return-assign":"error",
+    "no-with":"error",
+    "require-await":"error",
+    "vars-on-top":"error",
+    "wrap-iife":"error",
+    "no-shadow":"error",
+    "no-use-before-define":"error",
+    "prefer-promise-reject-errors":"warn",
+    "no-catch-shadow":"error",
+    "no-label-var":"error",
+    "brace-style":"warn",
+    "camelcase":"error",
+    "no-tabs":"error",
+    "new-cap":"error",
+    "one-var":"warn",
+    "space-infix-ops":"warn",
+    "spaced-comment":"warn",
+    "switch-colon-spacing":"error",
+    "arrow-spacing":"warn",
+    "no-duplicate-imports":"error",
+    "no-var":"error",
+    "prefer-const":"off",
+    "prefer-rest-params":"error",
+    "no-prototype-builtins":"off",
+    "vue/no-template-shadow":"off",
+    "vue/no-dupe-keys":"off"
+  },
+  "settings": {
+    "html/html-extensions": [".html"],
+    "html/indent": "+2"
+  },
+  "globals": {
+    "Vue":true,
+    "$":true
+  }
+}
