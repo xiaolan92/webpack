@@ -1,8 +1,8 @@
 const Webpack = require("webpack"),
     path = require("path"),
-    UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+    TerserPlugin = require("terser-webpack-plugin");
 const  { merge } = require("webpack-merge"),
-    OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
+    CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
     Baseconfig = require("./webpack.base.config");
 
 module.exports = merge(Baseconfig,{
@@ -12,13 +12,8 @@ module.exports = merge(Baseconfig,{
         /**
          *   分割公共模块
          */
+        runtimeChunk: 'single',
         splitChunks:{
-            chunks:"all",
-            minSize:30000,
-            minChunks:2,
-            maxAsyncRequests: 10,
-            maxInitialRequests:10,
-            name:true,
             cacheGroups:{
                 /**
                  *  提取第三方库
@@ -38,43 +33,38 @@ module.exports = merge(Baseconfig,{
             }
 
         },
-        minimizer:[
-            new UglifyJsPlugin({
-                sourceMap: true,
+        sideEffects: true,
+        minimizer: [
+            new TerserPlugin({
                 parallel: true,
-                cache:true,
-                uglifyOptions: {
+                extractComments:false,
+                terserOptions:{
                     ecma:8,
-                    warnings:false,
-                    ie8:false,
-                    output:{
-                        comments: false,
+                    compress: {
+                        drop_console: false,
+                        drop_debugger: false
                     },
-                    compress:{
-                        drop_console:true
-                    }
-                }
+                },
+                exclude: /\/excludes/,
+        }),
+            // css 优化压缩
+            new CssMinimizerPlugin({
+                test: /\.(scss|css)(\?.*)?$/i,
+                exclude: /\/excludes/,
+                minimizerOptions: {
+                    preset: ['default', { discardComments: { removeAll: true } }],
+                },
             }),
-            /**
-             *   css优化压缩
-             */
-            new OptimizeCSSAssetsPlugin({
-                cssProcessor:require("cssnano"),
-                cssProcessorOptions:{
-                    discardComments: {
-                        /**
-                         * 去除所有注释
-                         */
-                        removeAll: true
-                    }
-                }
-            })
-
-        ]
+    ]
 
     },
     plugins:[
-        new Webpack.HashedModuleIdsPlugin(),
+        new Webpack.ids.HashedModuleIdsPlugin({
+            context: path.resolve(__dirname, "../dist"),
+            hashFunction: 'sha256',
+            hashDigest: 'hex',
+            hashDigestLength: 20,
+        }),
         new Webpack.DefinePlugin({
             "process.env.NODE_ENV": JSON.stringify("production"),
 

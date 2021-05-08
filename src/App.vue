@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div>
     <router-view />
   </div>
 </template>
@@ -7,8 +7,14 @@
 export default {};
 </script>
 <style lang="scss">
-.app {
-    width: 100%;
+html,body {
+    padding: 0;
+    margin: 0;
+}
+html {
+    touch-action: manipulation;
+    width: 100vw;
+    font-size: calc(100vw / 25);
 }
 </style>
 

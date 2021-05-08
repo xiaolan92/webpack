@@ -143,7 +143,7 @@ webpackconfig = {
                         loader: "url-loader",
                         options: {
                             limit: 500,
-                            name: "[fullhash:8].[ext]",
+                            name: "[name].[fullhash:8].[ext]",
                             outputPath: "./images/"
                         }
                     }
@@ -158,7 +158,7 @@ webpackconfig = {
                     {
                         loader: "file-loader",
                         options: {
-                            name: "[fullhash:8].[ext]",
+                            name: "[name].[fullhash:8].[ext]",
                             outputPath: "./fonts/",
                         }
                     }
@@ -190,7 +190,8 @@ webpackconfig = {
         }),
         new StylelintPlugin({
             fix: true,
-            files: ['**/*.{vue,htm,html,css,sss,less,scss,sass}'],
+            context:path.resolve(__dirname,"../src"),
+            files: ['**/*.{vue,html,css,sss,less,scss,sass}'],
         }),
         new VueLoaderPlugin(),
         new Webpack.DllReferencePlugin({
