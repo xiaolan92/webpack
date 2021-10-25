@@ -18,9 +18,7 @@
     "amd": true
   },
   "plugins":[
-    "vue",
     "html",
-    "promise",
     "typescript"
   ],
   "rules": {
@@ -69,16 +67,13 @@
     "no-var":"error",
     "prefer-const":"off",
     "prefer-rest-params":"error",
-    "no-prototype-builtins":"off",
-    "vue/no-template-shadow":"off",
-    "vue/no-dupe-keys":"off"
+    "no-prototype-builtins":"off"
   },
   "settings": {
     "html/html-extensions": [".html"],
     "html/indent": "+2"
   },
   "globals": {
-    "Vue":true,
-    "$":true
+
   }
 }

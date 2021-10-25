@@ -5,7 +5,6 @@ const Webpack = require("webpack"),
 
   const {  CleanWebpackPlugin } = require("clean-webpack-plugin"),
     path = require("path"),
-    VueLoaderPlugin = require("vue-loader/lib/plugin"),
     HappyPack = require("happypack"),
     HardSourceWebpackPlugin = require("hard-source-webpack-plugin"),
     BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
@@ -20,7 +19,7 @@ const Webpack = require("webpack"),
     webpackconfig = {
 
         entry:{
-            main: path.resolve(__dirname, "../src/main.ts")
+            main: path.resolve(__dirname, "../src/main.js")
         },
 
         output:{
@@ -31,7 +30,7 @@ const Webpack = require("webpack"),
         module:{
             rules: [
                 {
-                    test: /\.js$/,
+                    test: /\.(js|jsx)$/,
                     use:"happypack/loader?id=babel",
                     exclude:/node_modules/
                 },
@@ -45,29 +44,20 @@ const Webpack = require("webpack"),
                     test: /\.tsx?$/,
                     loader: 'ts-loader',
                     exclude: /node_modules/,
-                    options: {
-                        appendTsSuffixTo: [/\.vue$/],
-                    }
                 },
 
 
-                {
-                    test:/\.vue$/,
-                    use:"vue-loader",
-                },
-
-
-                {
-                    test: /\.(js|vue|jsx)$/,
-                    use:{
-                        loader: "eslint-loader",
-                        options: {
-                            formatter: require("eslint-friendly-formatter"),
-                        }
-                    },
-                    enforce: "pre",
-                    include:path.resolve(__dirname,"../src")
-                },
+                // {
+                //     test: /\.(js|jsx)$/,
+                //     use:{
+                //         loader: "eslint-loader",
+                //         options: {
+                //             formatter: require("eslint-friendly-formatter"),
+                //         }
+                //     },
+                //     enforce: "pre",
+                //     include:path.resolve(__dirname,"../src")
+                // },
 
                 {
                     test: /\.css$/,
@@ -150,15 +140,12 @@ const Webpack = require("webpack"),
         resolve: {
             alias: {
                 "@":path.resolve(__dirname,"../src"),
-                "vue$": "vue/dist/vue.esm.js",
             },
 
             extensions: [".js",".ts",".tsx",".json",".vue",".css",".scss",".sass"]
 
         },
         plugins:[
-
-            new VueLoaderPlugin(),
             new Webpack.DllReferencePlugin({
                 context:path.resolve(__dirname),
                 manifest:require("../dist/lib/lib.manifest.json")
@@ -192,7 +179,6 @@ const Webpack = require("webpack"),
             new CompressionPlugin({
                 test:/\.(js|scss)$/i,
                 exclude: /\/excludes/,
-                cache: true,
             }),
 
 
@@ -215,13 +201,6 @@ const Webpack = require("webpack"),
         hash:true
     });
 
-
-/**
-    * 此段代码为多页面配置,当只需要单页面时,注释掉这段代码.
-    * 然后在webpackconfig.plugins中new Htmlwebpackplugin
-    * 然后改变chunks
-    *
-    * */
     let plugin = new Htmlwebpackplugin({
         template:"./src/index.html",
         filename:"index.html",
@@ -241,17 +220,12 @@ const Webpack = require("webpack"),
             removeStyleLinkTypeAttributes:true,
             keepClosingSlash:true,
             minifyCSS:true,
-            minifyJS:true,
+            minifyJS:true, 
             minifyURLs:true,
             removeScriptTypeAttributes:true
 
         },
-        /**
-         * 当需要单文件多入口时,可通过配置chunks来
-         * 实现.
-         */
         chunks:["main"],
-        chunksSortMode: "dependency",
 
     });
     /**
