@@ -1,4 +1,5 @@
 import React,{  Component } from "react";
+import { DatePicker }  from "antd";
 import "./App.css";
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
     return (
       <div className="main">
         <div>我是首页111</div>
+        <DatePicker/>
       </div>
     );
   }
