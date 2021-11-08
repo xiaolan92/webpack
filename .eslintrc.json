@@ -2,7 +2,7 @@
   "root": true,
   "parserOptions": {
     "parser": "@typescript-eslint/parser",
-    "ecmaVersion":2020,
+    "ecmaVersion":2021,
     "sourceType": "module",
     "ecmaFeatures":{
       "jsx": true,
@@ -10,7 +10,7 @@
       "impliedStrict":true
     }
   },
-  "extends": ["eslint:recommended","plugin:vue/strongly-recommended","plugin:promise/recommended"],
+  "extends": ["eslint:recommended","plugin:promise/recommended"],
   "env": {
     "browser": true,
     "es6": true,
@@ -19,7 +19,8 @@
   },
   "plugins":[
     "html",
-    "typescript"
+    "typescript",
+    "react-hooks"
   ],
   "rules": {
     "indent": "warn",
@@ -67,7 +68,9 @@
     "no-var":"error",
     "prefer-const":"off",
     "prefer-rest-params":"error",
-    "no-prototype-builtins":"off"
+    "no-prototype-builtins":"off",
+    "react-hooks/rules-of-hooks": "error", 
+    "react-hooks/exhaustive-deps": "warn"
   },
   "settings": {
     "html/html-extensions": [".html"],

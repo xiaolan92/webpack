@@ -3,7 +3,8 @@ const Webpack = require("webpack"),
     UglifyJsPlugin = require("uglifyjs-webpack-plugin"),
     Merge = require("webpack-merge"),
     OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
-    Baseconfig = require("./webpack.base.config");
+    Baseconfig = require("./webpack.base.config"),
+    TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = Merge(Baseconfig,{
     mode:"production",
@@ -52,10 +53,12 @@ module.exports = Merge(Baseconfig,{
                         removeAll: true
                     }
                 }
+            }),
+            new TerserPlugin({
+                minify: TerserPlugin.swcMinify,
             })
 
-        ]
-
+        ],
     },
     plugins:[
         new Webpack.HashedModuleIdsPlugin(),

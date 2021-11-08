@@ -140,7 +140,7 @@ webpackconfig = {
             "@": path.resolve(__dirname, "../src"),
         },
 
-        extensions: [".js", ".ts", ".tsx", ".json", ".vue", ".css", ".scss", ".sass"]
+        extensions: [".js", ".jsx",".ts", ".tsx", ".json", ".vue", ".css", ".scss", ".sass"]
 
     },
     plugins: [

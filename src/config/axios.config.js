@@ -27,7 +27,6 @@ axios.interceptors.request.use(config => {
 });
 
 
-// eslint-disable-next-line consistent-return
 axios.interceptors.response.use(response => {
     if (response.status === 200) {
         // 当用户登陆过期时,code为1001;
