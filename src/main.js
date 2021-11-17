@@ -1,14 +1,14 @@
 import "@babel/polyfill";
 import React from "react";
 import  ReactDOM from "react-dom";
-import App from "./App";
+import Router from "@/routes/index";
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 import 'antd/dist/antd.less';
 
 ReactDOM.render(
     <ConfigProvider  locale={zhCN}>
-        <App/>
+        <Router/>,
     </ConfigProvider>,
     document.getElementById("root")
 );
