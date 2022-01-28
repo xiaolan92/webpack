@@ -34,12 +34,12 @@ webpackconfig = {
                 use: "happypack/loader?id=babel",
                 exclude: /node_modules/
             },
-            {
-                test: /\.ts$/,
-                exclude: /node_modules/,
-                enforce: 'pre',
-                loader: 'tslint-loader'
-            },
+            // {
+            //     test: /\.ts$/,
+            //     exclude: /node_modules/,
+            //     enforce: 'pre',
+            //     loader: 'tslint-loader'
+            // },
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
