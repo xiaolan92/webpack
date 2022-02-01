@@ -102,7 +102,7 @@ webpackconfig = {
 
 
             {
-                test: /\.(png|svg|jpg|gif)$/,
+                test: /\.(png|jpg|gif)$/,
                 use: [
                     {
                         loader: "url-loader",
@@ -113,9 +113,20 @@ webpackconfig = {
                         }
                     }
                 ],
-                include: path.resolve(__dirname, "../src")
+                include: path.resolve(__dirname, "../src"),
             },
+            {
+                test: /\.svg$/,
+                use:[{
+                    loader: 'svg-sprite-loader',
+                    options: {
+                        symbolId: 'icon-[name]'
+                      }
 
+                }],
+               
+                include: path.resolve(__dirname, '../src/components/icon/icons'),
+              },
 
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,

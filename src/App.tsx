@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
+import SvgIcon from "./components/SvgIcon";
 
 
 export const App: FC = () => {
@@ -9,6 +10,7 @@ export const App: FC = () => {
       <Wrpper>
         2222
       </Wrpper>
+      <SvgIcon iconClass="avatar"></SvgIcon>
     </Container>
 
 
