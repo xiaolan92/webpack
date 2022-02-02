@@ -6,11 +6,12 @@
     "sourceType": "module",
     "ecmaFeatures":{
       "jsx": true,
+      "useJSXTextNode": true,
       "globalReturn":true,
       "impliedStrict":true
     }
   },
-  "extends": ["eslint:recommended","plugin:promise/recommended"],
+  "extends": ["eslint:recommended","plugin:promise/recommended","airbnb-base"],
   "env": {
     "browser": true,
     "es6": true,
@@ -20,7 +21,8 @@
   "plugins":[
     "html",
     "typescript",
-    "react-hooks"
+    "react-hooks",
+    "@typescript-eslint"
   ],
   "rules": {
     "indent": "warn",
