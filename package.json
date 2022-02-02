@@ -76,6 +76,9 @@
     "autoprefixer": "^9.8.4",
     "babel-eslint": "^10.1.0",
     "babel-plugin-styled-components": "^2.0.2",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0",
     "eslint": "^8.0.1",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^3.0.4",
@@ -89,5 +92,10 @@
     "typescript-eslint-parser": "^22.0.0",
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-dev-server": "^4.3.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }
