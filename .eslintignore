@@ -1,3 +1,6 @@
 build
 node_modules
 dist
+src/config
+*.d.ts
+commitlint.config.js

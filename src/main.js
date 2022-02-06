@@ -5,8 +5,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
-import { reducer } from '@/store/index';
-import Router from '@/routes/index';
+import { reducer } from './store/index';
+import Router from './routes/index';
 import 'antd/dist/antd.less';
 import './components/icon/index';
 

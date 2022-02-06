@@ -11,7 +11,7 @@ module.exports = {
      *
      */
     entry:{
-        lib: ["@babel/polyfill", "vue", "vue-router", "vuex", "axios", "vant","element-ui"]
+        lib: ["@babel/polyfill", "react",  "axios"]
     },
     output: {
         filename:"[name].dll.js",
