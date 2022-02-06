@@ -1,14 +1,15 @@
-import "@babel/polyfill";
-import React from "react";
-import ReactDOM from "react-dom";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-import { reducer } from "@/store/index";
-import Router from "@/routes/index";
+import '@babel/polyfill';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
+import { reducer } from '@/store/index';
+import Router from '@/routes/index';
 import 'antd/dist/antd.less';
-import "./components/icon/index";
+import './components/icon/index';
+
 let store = createStore(reducer);
 
 ReactDOM.render(
@@ -17,8 +18,5 @@ ReactDOM.render(
             <Router />,
         </ConfigProvider>,
     </Provider>,
-    document.getElementById("root")
+    document.getElementById('root'),
 );
-
-
-

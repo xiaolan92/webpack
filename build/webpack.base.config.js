@@ -79,9 +79,9 @@ webpackconfig = {
                     'style-loader',
                     'css-loader',
                     {
-                        loader:'less-loader',
-                        options:{
-                            lessOptions:{
+                        loader: 'less-loader',
+                        options: {
+                            lessOptions: {
                                 javascriptEnabled: true
                             }
                         }
@@ -117,16 +117,16 @@ webpackconfig = {
             },
             {
                 test: /\.svg$/,
-                use:[{
+                use: [{
                     loader: 'svg-sprite-loader',
                     options: {
                         symbolId: 'icon-[name]'
-                      }
+                    }
 
                 }],
-               
+
                 include: path.resolve(__dirname, '../src/components/icon/icons'),
-              },
+            },
 
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -151,7 +151,7 @@ webpackconfig = {
             "@": path.resolve(__dirname, "../src"),
         },
 
-        extensions: [".js", ".jsx",".ts", ".tsx", ".json", ".vue", ".css", ".scss", ".sass"]
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".css", ".less", ".scss", ".sass"]
 
     },
     plugins: [

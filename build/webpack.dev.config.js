@@ -1,7 +1,8 @@
 const Merge = require("webpack-merge"),
     Baseconfig = require("./webpack.base.config"),
     Webpack = require("webpack"),
-    path = require("path");
+    path = require("path"),
+    ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = Merge(Baseconfig,{
     mode:"development",
@@ -14,6 +15,9 @@ module.exports = Merge(Baseconfig,{
     },
     plugins:[
         new Webpack.HotModuleReplacementPlugin(),
+        new ESLintPlugin({
+            extensions:["js","ts","tsx"]
+        }),
 
     ],
     devServer:{
