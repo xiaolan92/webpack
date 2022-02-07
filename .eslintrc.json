@@ -104,6 +104,9 @@
       "@typescript-eslint/parser": [".js",".ts", ".tsx"]
     },
     "import/resolver": {
+      "alias":[
+        ["@","./src"]
+      ],
       "node": {
         "extensions": [
           ".js",
