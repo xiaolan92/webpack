@@ -17,7 +17,8 @@
     "plugin:react/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
-    "airbnb-base",
+    "airbnb/hooks",
+    "airbnb-typescript",
     "plugin:@typescript-eslint/recommended"
   ],
   "env": {
@@ -34,8 +35,8 @@
 
   ],
   "rules": {
-    "indent": "warn",
-    "quotes": "warn",
+    "indent": "off",
+    "quotes": "off",
     "require-jsdoc": "error",
     "semi": [
       "error",
@@ -65,7 +66,7 @@
     "vars-on-top": "error",
     "wrap-iife": "error",
     "no-shadow": "error",
-    "no-use-before-define": "error",
+    "no-use-before-define": "off",
     "prefer-promise-reject-errors": "warn",
     "no-catch-shadow": "error",
     "no-label-var": "error",
@@ -73,7 +74,7 @@
     "camelcase": "error",
     "no-tabs": "error",
     "new-cap": "error",
-    "one-var": "warn",
+    "one-var": "off",
     "space-infix-ops": "warn",
     "spaced-comment": "warn",
     "switch-colon-spacing": "error",
@@ -88,6 +89,10 @@
     "import/prefer-default-export":"off",
     "arrow-body-style":"off",
     "import/no-unresolved": "error",
+    "@typescript-eslint/quotes": ["off"],
+    "@typescript-eslint/indent": ["warn"],
+    "@typescript-eslint/no-use-before-define": ["off"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js",".jsx",".tsx"] }],
     "import/extensions": [
       "error",
       "ignorePackages",
