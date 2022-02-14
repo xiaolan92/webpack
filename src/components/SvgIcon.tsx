@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 type SvgIconProps = {
   iconClass:string
-}
+};
 
 const SvgIcon:FC<SvgIconProps> = (props) => {
   const { iconClass } = props;

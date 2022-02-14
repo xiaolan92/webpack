@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import SvgIcon from './components/SvgIcon';
 
@@ -20,8 +20,8 @@ const Container = styled.div<{ name?: string }>`
   height:200px;
   background:red;
 
-`,
-  Wrpper = styled(Container)`
+`;
+const Wrpper = styled(Container)`
   color:black;
   font-weight:bold;
   background:#78e710;
