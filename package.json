@@ -36,6 +36,8 @@
     "css-hot-loader": "^1.4.4",
     "css-loader": "^3.6.0",
     "file-loader": "^4.3.0",
+    "formik": "^2.2.9",
+    "formik-antd": "^2.0.3",
     "glob": "^7.1.6",
     "happypack": "^5.0.1",
     "hard-source-webpack-plugin": "^0.13.1",
