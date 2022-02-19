@@ -1,10 +1,10 @@
 const Webpack = require("webpack"),
     path = require("path"),
     UglifyJsPlugin = require("uglifyjs-webpack-plugin"),
-    Merge = require("webpack-merge"),
-    OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
-    Baseconfig = require("./webpack.base.config"),
-    TerserPlugin = require('terser-webpack-plugin');
+    Merge = require("webpack-merge");
+    const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
+    Baseconfig = require("./webpack.base.config");
+    const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = Merge(Baseconfig,{
     mode:"production",
@@ -19,7 +19,7 @@ module.exports = Merge(Baseconfig,{
             minChunks:2,
             maxAsyncRequests: 10,
             maxInitialRequests:10,
-            name:true,
+            name:false,
             cacheGroups:{
                 /**
                  *  提取第三方库
@@ -43,25 +43,22 @@ module.exports = Merge(Baseconfig,{
             /**
              *   css优化压缩
              */
-            new OptimizeCSSAssetsPlugin({
-                cssProcessor:require("cssnano"),
-                cssProcessorOptions:{
-                    discardComments: {
-                        /**
-                         * 去除所有注释
-                         */
-                        removeAll: true
-                    }
-                }
+            new CssMinimizerPlugin({
+                minimizerOptions: {
+                    preset: [
+                      "default",
+                      {
+                        discardComments: { removeAll: true },
+                      },
+                    ],
+                  },
             }),
-            new TerserPlugin({
-                minify: TerserPlugin.swcMinify,
-            })
 
         ],
     },
     plugins:[
-        new Webpack.HashedModuleIdsPlugin(),
+        new Webpack.ids.HashedModuleIdsPlugin(),
+        new MiniCssExtractPlugin({})
 
     ],
 

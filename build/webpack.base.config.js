@@ -24,8 +24,8 @@ webpackconfig = {
 
     output: {
         path: path.resolve(__dirname, "../dist"),
-        filename: "js/[name].bundle.[hash:8].js",
-        chunkFilename: "js/[name].chunk.[hash:8].js"
+        filename: "js/[name].bundle.[chunkhash:8].js",
+        chunkFilename: "js/[name].chunk.[chunkhash:8].js"
     },
     module: {
         rules: [
@@ -108,7 +108,7 @@ webpackconfig = {
                         loader: "url-loader",
                         options: {
                             limit: 500,
-                            name: "[hash:8].[ext]",
+                            name: "[chunkhash:8].[ext]",
                             outputPath: "./images/"
                         }
                     }
@@ -134,7 +134,7 @@ webpackconfig = {
                     {
                         loader: "file-loader",
                         options: {
-                            name: "[hash:8].[ext]",
+                            name: "[chunkhash:8].[ext]",
                             outputPath: "./fonts/",
                         }
                     }
@@ -162,8 +162,8 @@ webpackconfig = {
         new Webpack.ProvidePlugin({
         }),
         new MiniCssExtractPlugin({
-            filename: "css/[name].[hash:8].css",
-            chunkFilename: "css/[id].[hash:8].css"
+            filename: "css/[name].[chunkhash:8].css",
+            chunkFilename: "css/[id].[chunkhash:8].css"
         }),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, "../dist"), "**/*", "!lib/lib.dll.js", "!lib.manifest.json"],
