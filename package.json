@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config build/webpack.prod.config.js --color --profile  --json > status/status_prod.json",
+    "build:dev": "webpack --config build/webpack.prod.config.js --color --profile  --json > status/status_prod.json",
     "dll": "webpack  --config build/webpack.dll.config.js --color",
     "dev": "webpack-dev-server --config build/webpack.dev.config.js    --color ",
     "lint": "eslint --color --ext .js,jsx,.vue,.html src/",

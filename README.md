@@ -51,3 +51,10 @@
 
 ```
 ### webpack.dll.config.js为打包第三方包,打包项目前先`npm run dll`,避免每次打包项目时都打包第三方包(jquery,vue,vuex,vue-router等) ###
+
+
+ ###
+docker 打包镜像命令
+docker build --build-arg BUILD_ENV=dev -t xiaolan/hole:v1.0.0  .
+  // 对象不同的环境
+ BUILD_ENV=dev
