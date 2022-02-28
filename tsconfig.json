@@ -2,18 +2,20 @@
     "include": [
         "src/*",
         "src/**/*"
-, "index.d.ts"    ],
+, "index.d.ts", "src/views/index/test/index.test.ts"    ],
     "exclude": [
         "node_modules",
         "dist"
     ],
     "compilerOptions": {
+        "baseUrl": ".",
         "jsx": "react",
         "typeRoots": [
             "node_modules/@types"
         ],
         "types": [
-            "node"
+            "node",
+            "jest"
         ],
         "outDir": "./",
         "strict": true,
@@ -45,7 +47,7 @@
             "ESNext.Array"
         ],
         "sourceMap": true,
-        "pretty": true
+        "pretty": true,
     },
     
 }
