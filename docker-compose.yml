@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  hole:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      labels:
+        - v1.0.0
+      args: 
+        BUILD_ENV: dev
+    ports: 
+       - target: 80
+         published: 80
+         protocol: tcp
+         mode: host 
+    container_name: hole
+    restart: on-failure
