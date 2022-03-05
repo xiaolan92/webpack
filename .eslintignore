@@ -6,3 +6,4 @@ src/config
 commitlint.config.js
 jest.config.js
 coverage
+postcss.config.js

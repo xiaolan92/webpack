@@ -3,15 +3,15 @@ services:
   hole:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
       labels:
         - v1.0.0
-      args: 
+      args:
         BUILD_ENV: dev
-    ports: 
+    ports:
        - target: 80
          published: 80
          protocol: tcp
-         mode: host 
+         mode: host
     container_name: hole
     restart: on-failure
