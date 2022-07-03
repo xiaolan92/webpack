@@ -26,8 +26,8 @@
         "removeComments": true,
         "suppressImplicitAnyIndexErrors": true,
         "allowJs": true,
-        "module": "es2015",
-        "target": "ES5",
+        "module": "es2022",
+        "target": "es6",
         "moduleResolution": "node",
         "noImplicitAny": true,
         "lib": [
@@ -49,5 +49,5 @@
         "sourceMap": true,
         "pretty": true,
     },
-    
+
 }

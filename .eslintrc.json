@@ -7,7 +7,7 @@
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true,
-      "useJSXTextNode": true, 
+      "useJSXTextNode": true,
       "globalReturn": true,
       "impliedStrict": true
     }
@@ -46,7 +46,6 @@
     "no-console": "off",
     "accessor-pairs": "warn",
     "block-scoped-var": "error",
-    "class-methods-use-this": "error",
     "consistent-return": "warn",
     "curly": "warn",
     "default-case": "error",
@@ -89,8 +88,11 @@
     "import/prefer-default-export":"off",
     "arrow-body-style":"off",
     "import/no-unresolved": "error",
+    "class-methods-use-this":["off", { "enforceForClassFields": false }],
     "@typescript-eslint/quotes": ["warn"],
     "@typescript-eslint/indent": ["warn"],
+    "@typescript-eslint/no-explicit-any":"off",
+    "react/prop-types":"off",
     "@typescript-eslint/no-use-before-define": ["off"],
     "react/jsx-filename-extension": [1, { "extensions": [".js",".ts",".tsx"] }],
     "import/extensions": [
@@ -110,7 +112,7 @@
     },
     "import/resolver": {
       "alias":[
-        ["@","./src"]
+        ["~","./src"]
       ],
       "node": {
         "extensions": [
@@ -128,7 +130,7 @@
       "version": "latest"
     }
 
-    
+
   },
   "globals": {}
 }

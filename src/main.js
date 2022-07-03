@@ -1,22 +1,23 @@
 import '@babel/polyfill';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
-import { reducer } from '@/store/index';
-import Router from '@/routes/index';
+import { store } from './store/index';
+import Router from './routes/index';
 import 'antd/dist/antd.less';
 import './components/icon/index';
 
-let store = createStore(reducer);
+const container = document.getElementById('root');
+const root = createRoot(container);
+/* eslint-disable  */
+ console.log('接口地址', process.env.REACT_APP_API);
 
-ReactDOM.render(
-    <Provider store={store}>
-        <ConfigProvider locale={zhCN}>
-            <Router />,
-        </ConfigProvider>,
-    </Provider>,
-    document.getElementById('root'),
+root.render(
+  <Provider store={store}>
+    <ConfigProvider locale={zhCN}>
+      <Router />
+    </ConfigProvider>
+  </Provider>,
 );

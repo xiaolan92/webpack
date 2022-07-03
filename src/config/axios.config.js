@@ -2,8 +2,6 @@ import axios from 'axios';
 import Qs from 'qs';
 import { Message, MessageBox } from 'element-ui';
 import { baseUrl } from './baseUrl';
-import 'element-ui/lib/theme-chalk/index.css';
-import router from '../routes/index';
 
 axios.defaults.baseURL = baseUrl;
 axios.defaults.timeout = 2000;

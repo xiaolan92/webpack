@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 
 export const Demo  = () => {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState<number>(1);
   useEffect( () => {
     console.log('effect');
   });
@@ -10,7 +10,7 @@ export const Demo  = () => {
         <div>
             <span>{ count }</span>
             <div onClick={ () => {
-              setCount(count + 1); 
+              setCount(count + 1);
             } }>点击</div>
         </div>
   );
