@@ -24,7 +24,7 @@ instance.interceptors.request.use(config => {
   if (token) {
     config.headers = {
       ...config.headers,
-      Authorization:token,
+      Authorization: token,
     };
   }
   return config;
