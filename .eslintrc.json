@@ -93,6 +93,7 @@
     "@typescript-eslint/indent": ["warn"],
     "@typescript-eslint/no-explicit-any":"off",
     "react/prop-types":"off",
+    "@typescript-eslint/space-before-blocks":"off",
     "@typescript-eslint/no-use-before-define": ["off"],
     "react/jsx-filename-extension": [1, { "extensions": [".js",".ts",".tsx"] }],
     "import/extensions": [

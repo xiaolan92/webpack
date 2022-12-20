@@ -33,7 +33,6 @@ export class Index3 extends Component<unknown, unknown> {
   };
 
   public render() {
-
     return (
       <>
         <BasePermission roleId={3}>点击我</BasePermission>
