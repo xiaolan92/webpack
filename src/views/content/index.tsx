@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import {  Outlet } from 'react-router-dom';
 import * as THREE from 'three';
-// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 export const Content:FC =  () => {
   const scene = new THREE.Scene();
@@ -17,13 +17,12 @@ export const Content:FC =  () => {
   const cube = new THREE.Mesh( geometry, material );
   scene.add( cube );
 
-  camera.position.z = 7;
-  // const controls = new OrbitControls( camera, renderer.domElement );
+  const controls = new OrbitControls( camera, renderer.domElement );
+  camera.position.set(0, 20, 13);
+  controls.update();
   // eslint-disable-next-line require-jsdoc
   function animate() {
     requestAnimationFrame( animate );
-    cube.rotation.x += 0.02;
-    cube.rotation.y += 0.01;
     renderer.render( scene, camera );
   }
   animate();
