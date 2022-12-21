@@ -7,8 +7,8 @@ export const SideBar:FC = () => {
 };
 
 const Container  = styled.div`
-width: 207px;
+width: 100%;
 height: 100%;
-background: white;
+background: orange;
 box-shadow: rgba(37, 37, 37, 0.05) 0px 0px 5px inset;
 `;
