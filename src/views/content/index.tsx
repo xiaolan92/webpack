@@ -16,10 +16,15 @@ export const Content:FC =  () => {
   const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
   const cube = new THREE.Mesh( geometry, material );
   scene.add( cube );
+  cube.position.set(0, 1, 0);
+  cube.scale.x = 10;
 
   const controls = new OrbitControls( camera, renderer.domElement );
   camera.position.set(0, 20, 13);
   controls.update();
+
+  const axesHelper = new THREE.AxesHelper(5);
+  scene.add(axesHelper);
   // eslint-disable-next-line require-jsdoc
   function animate() {
     requestAnimationFrame( animate );
