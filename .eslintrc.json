@@ -25,7 +25,9 @@
     "browser": true,
     "es6": true,
     "commonjs": true,
-    "amd": true
+    "amd": true,
+    "es2022": true,
+    "node": true
   },
   "plugins": [
     "html",
@@ -118,7 +120,7 @@
       },
       "alias": {
         "map": [
-          ["~", "./src"]
+          ["@", "./src"]
         ]
 
       }

@@ -1,12 +1,12 @@
 const Webpack = require("webpack"),
-    path = require("path"),
-    UglifyJsPlugin = require("uglifyjs-webpack-plugin"),
-    Merge = require("webpack-merge");
+    path = require("path");
     const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"),
     Baseconfig = require("./webpack.base.config");
     const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+    const CopyPlugin = require('copy-webpack-plugin');
+ const { merge } = require("webpack-merge");
 
-module.exports = Merge(Baseconfig,{
+module.exports = merge(Baseconfig,{
     mode:"production",
     devtool:"hidden-source-map",
     optimization:{
@@ -58,7 +58,18 @@ module.exports = Merge(Baseconfig,{
     },
     plugins:[
         new Webpack.ids.HashedModuleIdsPlugin(),
-        new MiniCssExtractPlugin({})
+        new MiniCssExtractPlugin({}),
+        new CopyPlugin({
+          patterns: [
+          {
+            from: path.resolve(__dirname, '../src/assets'), // 复制public下文件
+            to: path.resolve(__dirname, '../dist'), // 复制到dist目录中
+            filter: source => {
+              return !source.includes('index.html') // 忽略index.html
+            }
+          },
+         ],
+      }),
 
     ],
 

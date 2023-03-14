@@ -1,7 +1,7 @@
 FROM node:16.14.0-slim AS build
 
 # 区分不同的环境
-ARG BUILD_ENV= dev
+ARG BUILD_ENV=dev
 
 WORKDIR /app
 COPY . /app

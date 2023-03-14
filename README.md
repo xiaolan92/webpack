@@ -12,7 +12,7 @@
 ├─src
 │  │——App.vue
 │  │——index.html
-│  │——main.js                入口文件
+│  │——main.ts                入口文件
 │  │  
 │  ├─common                  公共模块
 │  │          

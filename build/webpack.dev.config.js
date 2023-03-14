@@ -1,12 +1,15 @@
-const Merge = require("webpack-merge"),
+const { merge } = require("webpack-merge"),
     Baseconfig = require("./webpack.base.config"),
     Webpack = require("webpack"),
     path = require("path"),
     ESLintPlugin = require('eslint-webpack-plugin');
 
-module.exports = Merge(Baseconfig,{
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+
+
+module.exports = merge(Baseconfig,{
     mode:"development",
-    devtool:"eval-source-map",
+    devtool:"eval-cheap-module-source-map",
     cache:true,
     watchOptions:{
         ignored:/node_modules/,
@@ -14,15 +17,16 @@ module.exports = Merge(Baseconfig,{
         poll: 1000
     },
     plugins:[
-        new Webpack.HotModuleReplacementPlugin(),
         new ESLintPlugin({
             extensions:["js","ts","tsx"]
         }),
+      new ReactRefreshWebpackPlugin(),
 
     ],
     devServer:{
         historyApiFallback: true,
         port:4090,
+        hot:true,
         host:"127.0.0.1",
         open:true,
         compress:true,

@@ -3,6 +3,7 @@ const Webpack = require("webpack"),
      { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 
+
 module.exports = {
     mode:"production",
     /**
@@ -11,7 +12,7 @@ module.exports = {
      *
      */
     entry:{
-        lib: ["@babel/polyfill", "react",  "axios"]
+        lib: ["@babel/polyfill", "react",  "axios","antd"]
     },
     output: {
         filename:"[name].dll.js",
@@ -28,9 +29,10 @@ module.exports = {
             protectWebpackAssets: false
         }),
         new Webpack.DllPlugin({
-            path:"./dist/lib/[name].manifest.json",
-            name:"_dll_[name]",
-            context:path.resolve(__dirname,"../")
+          path:path.resolve(__dirname,"../dist/lib/[name].manifest.json"),
+          name:"_dll_[name]",
+          context:path.resolve(__dirname,"../")
+
         })
     ]
 };

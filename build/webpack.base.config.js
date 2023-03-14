@@ -10,6 +10,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin"),
   BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
   CompressionPlugin = require('compression-webpack-plugin');
 
+
 const fs = require('fs');
 
 const NODE_ENV = process.env.NODE_ENV;
@@ -36,7 +37,11 @@ dotenvFiles.forEach(dotenvFile => {
 webpackconfig = {
 
   entry: {
-    main: path.resolve(__dirname, "../src/main.js")
+    main: path.resolve(__dirname, "../src/main.tsx")
+  },
+
+  cache: {
+    type: 'filesystem', // 使用文件缓存
   },
 
   output: {
@@ -78,6 +83,7 @@ webpackconfig = {
 
       {
         test: /\.css$/,
+        include: [path.resolve(__dirname, '../src')],
         use: [
           process.env.NODE_ENV !== "production" ? "style-loader" : MiniCssExtractPlugin.loader,
           {
@@ -92,8 +98,9 @@ webpackconfig = {
 
       {
         test: /\.less$/,
+        include: [path.resolve(__dirname, '../src')],
         use: [
-          'style-loader',
+          process.env.NODE_ENV !== "production" ? "style-loader" : MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'less-loader',
@@ -123,19 +130,17 @@ webpackconfig = {
         }
       },
 
-
       {
-        test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 500,
-              name: "[chunkhash:8].[ext]",
-              outputPath: "./images/"
-            }
+        test:/.(png|jpg|jpeg|gif)$/, // 匹配图片文件
+        type: "asset", // type选择asset
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024, // 小于10kb转base64位
           }
-        ],
+        },
+        generator:{
+          filename:'./images/[name].[chunkhash:8][ext]',
+        },
         include: path.resolve(__dirname, "../src"),
       },
       {
@@ -152,27 +157,39 @@ webpackconfig = {
       },
 
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[chunkhash:8].[ext]",
-              outputPath: "./fonts/",
-            }
+        test:/.(woff2?|eot|ttf|otf)$/, // 匹配字体图标文件
+        type: "asset", // type选择asset
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024, // 小于10kb转base64位
           }
-        ]
-      }
+        },
+        generator:{
+          filename:'./fonts/[chunkhash:8][ext]', // 文件输出目录和命名
+        },
+      },
+      {
+        test:/.(mp4|webm|ogg|mp3|wav|flac|aac)$/, // 匹配媒体文件
+        type: "asset", // type选择asset
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024, // 小于10kb转base64位
+          }
+        },
+        generator:{
+          filename:'./media/[chunkhash:8][ext]', // 文件输出目录和命名
+        },
+      },
 
     ]
   },
 
   resolve: {
     alias: {
-      "~": path.resolve(__dirname, "../src"),
+      "@": path.resolve(__dirname, "../src"),
     },
 
-    extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".css", ".less", ".scss", ".sass"]
+    extensions: [".js", ".ts", ".tsx", ".css", ".less"]
 
   },
   plugins: [
@@ -190,9 +207,9 @@ webpackconfig = {
       chunkFilename: "css/[id].[chunkhash:8].css"
     }),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, "../dist"), "**/*", "!lib/lib.dll.js", "!lib.manifest.json"],
+      cleanOnceBeforeBuildPatterns:[path.resolve(__dirname,"../dist/js/*"),path.resolve(__dirname,"../dist/images/*"),path.resolve(__dirname,"../dist/font/*")],
       verbose: true,
-      dry: true,
+      dry: false,
       cleanStaleWebpackAssets: true,
       protectWebpackAssets: false
     }),

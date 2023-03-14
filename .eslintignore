@@ -1,9 +1,9 @@
 build
 node_modules
 dist
-src/config
 *.d.ts
 commitlint.config.js
 jest.config.js
 coverage
 postcss.config.js
+babel.config.js

@@ -1,8 +1,6 @@
 import React, { Component, ChangeEvent } from 'react';
 import { Input, Button } from 'antd';
-import { withPermission } from '../../components/HightComponent';
 
-const BasePermission = withPermission(Button)();
 export class Index3 extends Component<unknown, unknown> {
 
   constructor(props: unknown) {
@@ -35,7 +33,6 @@ export class Index3 extends Component<unknown, unknown> {
   public render() {
     return (
       <>
-        <BasePermission roleId={3}>点击我</BasePermission>
         <div style={{ 'width': '300px' }}>
           <div dangerouslySetInnerHTML={{ __html: '<div>111</div>' }}></div>
           <Input placeholder='请输入内容' onChange={this.getDemo} />

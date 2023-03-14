@@ -2,13 +2,18 @@
     "include": [
         "src/*",
         "src/**/*"
-, "index.d.ts", "src/views/index/test/index.test.ts"    ],
+,       "global.d.ts"],
     "exclude": [
         "node_modules",
         "dist"
     ],
     "compilerOptions": {
         "baseUrl": ".",
+           "paths": {
+            "@/*": [
+             "src/*"
+           ]
+         },
         "jsx": "react",
         "typeRoots": [
             "node_modules/@types"

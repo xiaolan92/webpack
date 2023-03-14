@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
-import { Content } from './views/content/index';
+import bg from '@/assets/images/bg.png';
+import './demo.less';
 
 
 export const App: FC = () => {
   return (
     <>
-      <Content />
+     <div>2kmmn</div>
+      <img src={bg} />
     </>
 
   );
