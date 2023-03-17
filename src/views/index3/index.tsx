@@ -2,11 +2,10 @@ import React, { Component, ChangeEvent } from 'react';
 import { Input, Button } from 'antd';
 
 export class Index3 extends Component<unknown, unknown> {
-
   constructor(props: unknown) {
     super(props);
     this.state = {
-      name: 'xiaolan',
+      name: 'xiaolan'
     };
   }
 
@@ -19,11 +18,9 @@ export class Index3 extends Component<unknown, unknown> {
       name: 'xiaolan',
       age: 30,
       area: 'wuhan',
-      roleId: 2,
-
+      roleId: 2
     };
     return obj;
-
   };
 
   private setName = () => {
@@ -33,7 +30,7 @@ export class Index3 extends Component<unknown, unknown> {
   public render() {
     return (
       <>
-        <div style={{ 'width': '300px' }}>
+        <div style={{ width: '300px' }}>
           <div dangerouslySetInnerHTML={{ __html: '<div>111</div>' }}></div>
           <Input placeholder='请输入内容' onChange={this.getDemo} />
           <Button onClick={this.setName}>节流</Button>
@@ -41,6 +38,4 @@ export class Index3 extends Component<unknown, unknown> {
       </>
     );
   }
-
-
 }

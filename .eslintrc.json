@@ -19,7 +19,8 @@
     "plugin:import/typescript",
     "airbnb/hooks",
     "airbnb-typescript",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
   ],
   "env": {
     "browser": true,
@@ -29,21 +30,12 @@
     "es2022": true,
     "node": true
   },
-  "plugins": [
-    "html",
-    "react-hooks",
-    "@typescript-eslint",
-    "import"
-
-  ],
+  "plugins": ["html", "react-hooks", "@typescript-eslint", "import"],
   "rules": {
     "indent": "off",
     "quotes": "off",
     "require-jsdoc": "error",
-    "semi": [
-      "error",
-      "always"
-    ],
+    "semi": ["error", "always"],
     "no-debugger": "off",
     "no-console": "off",
     "accessor-pairs": "warn",
@@ -87,17 +79,17 @@
     "no-prototype-builtins": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "import/prefer-default-export":"off",
-    "arrow-body-style":"off",
+    "import/prefer-default-export": "off",
+    "arrow-body-style": "off",
     "import/no-unresolved": "error",
-    "class-methods-use-this":["off", { "enforceForClassFields": false }],
+    "class-methods-use-this": ["off", { "enforceForClassFields": false }],
     "@typescript-eslint/quotes": ["warn"],
     "@typescript-eslint/indent": ["warn"],
-    "@typescript-eslint/no-explicit-any":"off",
-    "react/prop-types":"off",
-    "@typescript-eslint/space-before-blocks":"off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/space-before-blocks": "off",
     "@typescript-eslint/no-use-before-define": ["off"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js",".ts",".tsx"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".ts", ".tsx"] }],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -106,34 +98,27 @@
         "ts": "never",
         "tsx": "never"
       }
-   ]
+    ]
   },
   "settings": {
     "import/extensions": [".js", ".ts", ".tsx"],
     "import/parsers": {
-      "@typescript-eslint/parser": [".js",".ts", ".tsx"]
+      "@typescript-eslint/parser": [".js", ".ts", ".tsx"]
     },
     "import/resolver": {
-      "node":{
+      "node": {
         "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"],
-        "paths":["src"]
+        "paths": ["src"]
       },
       "alias": {
-        "map": [
-          ["@", "./src"]
-        ]
-
+        "map": [["@", "./src"]]
       }
     },
-    "html/html-extensions": [
-      ".html"
-    ],
+    "html/html-extensions": [".html"],
     "html/indent": "+2",
     "react": {
       "version": "detect"
     }
-
-
   },
   "globals": {}
 }

@@ -1,5 +1,5 @@
 export interface APIResponse<T> {
   message: string;
-  code: number
+  code: number;
   data?: T;
 }

@@ -1,9 +1,7 @@
-
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { APIResponse } from './type';
 import { BASE_API_URL } from './api';
 import { message as Message } from 'antd';
-
 
 const getToken = () => {
   return localStorage.getItem('token');
@@ -16,7 +14,7 @@ export const instance = axios.create({
   baseURL: BASE_API_URL,
   validateStatus(status) {
     return status < 400;
-  },
+  }
 });
 
 instance.interceptors.request.use(config => {
@@ -24,7 +22,7 @@ instance.interceptors.request.use(config => {
   if (token) {
     config.headers = {
       ...config.headers,
-      Authorization: token,
+      Authorization: token
     };
   }
   return config;
@@ -33,7 +31,6 @@ instance.interceptors.request.use(config => {
 instance.interceptors.response.use(response => {
   return response;
 });
-
 
 /**
  * Feature:
@@ -55,14 +52,13 @@ export function request<T>(
   extra?: {
     onFulfilled?: (value: AxiosResponse<any>) => APIResponse<T>;
     onRejected?: (error: any) => any;
-  },
+  }
 ): Promise<APIResponse<T>> {
   const defaultFulfilled = (response: any) => response.data as APIResponse<T>;
   const defaultRejected = (error: any) => {
     throw standardErrorMessageTransformer(error);
   };
-  const axiosPromise =
-    typeof url === 'string' ? instance(url, config) : instance(url);
+  const axiosPromise = typeof url === 'string' ? instance(url, config) : instance(url);
   return axiosPromise
     .then(extra?.onFulfilled || defaultFulfilled, error => {
       throw unAuthorizationErrorHandler(error);

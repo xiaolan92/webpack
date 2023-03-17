@@ -12,43 +12,43 @@ export const Index2: FC = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const num = useSelector(getNameLoading);
-  const [inView ] =  useIntersectionObserver(ref);
+  const [inView] = useIntersectionObserver(ref);
 
   useEffect(() => {
     console.log(inView, 111);
   }, [inView]);
   return (
     <Container>
-      <div >{params.id}</div>
-      {
-        num ? <div>111</div> : <div>2222</div>
-      }
-      <Button type='primary' onClick={() => {
-        // eslint-disable-next-line new-cap
-        dispatch(Decrement(1));
-      }}>点击我</Button>
-      <IntoView  ref={ref}>111</IntoView>
+      <div>{params.id}</div>
+      {num ? <div>111</div> : <div>2222</div>}
+      <Button
+        type='primary'
+        onClick={() => {
+          // eslint-disable-next-line new-cap
+          dispatch(Decrement(1));
+        }}
+      >
+        点击我
+      </Button>
+      <IntoView ref={ref}>111</IntoView>
       <IntoView1 ref={ref}>111</IntoView1>
     </Container>
-
   );
 };
 
 const Container = styled.div`
-height: 2000px;
+  height: 2000px;
 `;
 const IntoView = styled.div`
-width: 100%;
-height: 30px;
-margin-top: 1000px;
-background: red;
+  width: 100%;
+  height: 30px;
+  margin-top: 1000px;
+  background: red;
 `;
 
 const IntoView1 = styled.div`
-width: 100%;
-height: 30px;
-margin-top: 1000px;
-background: #0de0af;
+  width: 100%;
+  height: 30px;
+  margin-top: 1000px;
+  background: #0de0af;
 `;
-
-

@@ -3,6 +3,6 @@ import { combineReducers } from 'redux';
 import name from '../views/index2/slice';
 
 const rootReducer = combineReducers({
-  name,
+  name
 });
-export const store = configureStore({ reducer: rootReducer  });
+export const store = configureStore({ reducer: rootReducer });

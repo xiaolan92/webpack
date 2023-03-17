@@ -1,4 +1,4 @@
 export type InitNameState = {
-  value:number,
-  isLoading:boolean
+  value: number;
+  isLoading: boolean;
 };
