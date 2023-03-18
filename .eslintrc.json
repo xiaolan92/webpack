@@ -20,7 +20,8 @@
     "airbnb/hooks",
     "airbnb-typescript",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended"
   ],
   "env": {
     "browser": true,
