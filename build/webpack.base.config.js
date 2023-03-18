@@ -23,9 +23,9 @@ dotenvFiles.forEach(dotenvFile => {
       path: dotenvFile
     })
   }
-})
+});
 
-;(webpackconfig = {
+webpackconfig = {
   entry: {
     main: path.resolve(__dirname, '../src/main.tsx')
   },
@@ -46,29 +46,11 @@ dotenvFiles.forEach(dotenvFile => {
         use: 'happypack/loader?id=babel',
         exclude: /node_modules/
       },
-      // {
-      //     test: /\.ts$/,
-      //     exclude: /node_modules/,
-      //     enforce: 'pre',
-      //     loader: 'tslint-loader'
-      // },
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         loader: 'ts-loader',
         exclude: /node_modules/
       },
-
-      // {
-      //     test: /\.(js|jsx)$/,
-      //     use:{
-      //         loader: "eslint-loader",
-      //         options: {
-      //             formatter: require("eslint-friendly-formatter"),
-      //         }
-      //     },
-      //     enforce: "pre",
-      //     include:path.resolve(__dirname,"../src")
-      // },
 
       {
         test: /\.css$/,
@@ -220,12 +202,12 @@ dotenvFiles.forEach(dotenvFile => {
       exclude: /\/excludes/
     })
   ]
-}),
+};
   /**
    *  将第三方动态链接库打包到html页面
    *
    */
-  (AddAsset = new AddAssetHtmlPlugin({
+  AddAsset = new AddAssetHtmlPlugin({
     filepath: path.resolve(__dirname, '../dist/lib/*.dll.js'),
     outputPath: './lib',
     publicPath: './lib',
@@ -235,7 +217,7 @@ dotenvFiles.forEach(dotenvFile => {
      * 设置hash:true清除缓存,
      */
     hash: true
-  }))
+  });
 
 let plugin = new Htmlwebpackplugin({
   template: './src/index.html',
