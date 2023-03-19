@@ -1,6 +1,5 @@
 const { merge } = require('webpack-merge'),
   Baseconfig = require('./webpack.base.config'),
-  Webpack = require('webpack'),
   path = require('path'),
   ESLintPlugin = require('eslint-webpack-plugin')
 

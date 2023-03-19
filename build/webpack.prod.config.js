@@ -55,7 +55,10 @@ module.exports = merge(Baseconfig, {
   },
   plugins: [
     new Webpack.ids.HashedModuleIdsPlugin(),
-    new MiniCssExtractPlugin({}),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[chunkhash:8].css',
+      chunkFilename: 'css/[id].[chunkhash:8].css'
+    }),
     new CopyPlugin({
       patterns: [
         {

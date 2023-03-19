@@ -7,7 +7,7 @@ module.exports = {
         customProperties: {
           warnings: false
         }
-      }
+      },
     }
   }
 }

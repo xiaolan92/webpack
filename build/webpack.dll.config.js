@@ -10,7 +10,7 @@ module.exports = {
    *
    */
   entry: {
-    lib: ['@babel/polyfill', 'react', 'axios', 'antd']
+    lib: ['@babel/polyfill', 'react','react-dom', 'axios', 'antd','react-redux','react-router-dom','three']
   },
   output: {
     filename: '[name].dll.js',

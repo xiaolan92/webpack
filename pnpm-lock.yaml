@@ -4,6 +4,7 @@ specifiers:
   '@ant-design/icons': ^4.8.0
   '@ant-design/pro-components': ^2.4.0
   '@babel/core': ^7.17.5
+  '@babel/plugin-proposal-decorators': ^7.21.0
   '@babel/plugin-proposal-object-rest-spread': ^7.10.3
   '@babel/plugin-proposal-unicode-property-regex': ^7.10.1
   '@babel/plugin-syntax-dynamic-import': ^7.8.3
@@ -184,6 +185,7 @@ dependencies:
 
 devDependencies:
   '@babel/core': registry.npmmirror.com/@babel/core/7.20.7
+  '@babel/plugin-proposal-decorators': registry.npmmirror.com/@babel/plugin-proposal-decorators/7.21.0_@babel+core@7.20.7
   '@babel/plugin-proposal-unicode-property-regex': registry.npmmirror.com/@babel/plugin-proposal-unicode-property-regex/7.18.6_@babel+core@7.20.7
   '@babel/plugin-transform-react-jsx-source': registry.npmmirror.com/@babel/plugin-transform-react-jsx-source/7.19.6_@babel+core@7.20.7
   '@babel/plugin-transform-runtime': registry.npmmirror.com/@babel/plugin-transform-runtime/7.19.6_@babel+core@7.20.7
@@ -876,7 +878,7 @@ packages:
     version: 7.18.6
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': registry.npmmirror.com/@babel/types/7.20.7
+      '@babel/types': registry.npmmirror.com/@babel/types/7.21.2
     dev: true
 
   registry.npmmirror.com/@babel/helper-plugin-utils/7.20.2:
@@ -914,7 +916,7 @@ packages:
       '@babel/helper-optimise-call-expression': registry.npmmirror.com/@babel/helper-optimise-call-expression/7.18.6
       '@babel/template': registry.npmmirror.com/@babel/template/7.20.7
       '@babel/traverse': registry.npmmirror.com/@babel/traverse/7.20.10
-      '@babel/types': registry.npmmirror.com/@babel/types/7.20.7
+      '@babel/types': registry.npmmirror.com/@babel/types/7.21.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -933,7 +935,7 @@ packages:
     version: 7.20.0
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': registry.npmmirror.com/@babel/types/7.20.7
+      '@babel/types': registry.npmmirror.com/@babel/types/7.21.2
     dev: true
 
   registry.npmmirror.com/@babel/helper-split-export-declaration/7.18.6:
@@ -942,7 +944,7 @@ packages:
     version: 7.18.6
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': registry.npmmirror.com/@babel/types/7.20.7
+      '@babel/types': registry.npmmirror.com/@babel/types/7.21.2
 
   registry.npmmirror.com/@babel/helper-string-parser/7.19.4:
     resolution: {integrity: sha512-nHtDoQcuqFmwYNYPz3Rah5ph2p8PFeFCsZk9A/48dPc/rGocJ5J3hAAZ7pb76VWX3fZKu+uEr/FhH5jLx7umrw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@babel/helper-string-parser/-/helper-string-parser-7.19.4.tgz}
@@ -1082,6 +1084,25 @@ packages:
       '@babel/helper-create-class-features-plugin': registry.npmmirror.com/@babel/helper-create-class-features-plugin/7.21.0_@babel+core@7.20.7
       '@babel/helper-plugin-utils': registry.npmmirror.com/@babel/helper-plugin-utils/7.20.2
       '@babel/plugin-syntax-class-static-block': registry.npmmirror.com/@babel/plugin-syntax-class-static-block/7.14.5_@babel+core@7.20.7
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  registry.npmmirror.com/@babel/plugin-proposal-decorators/7.21.0_@babel+core@7.20.7:
+    resolution: {integrity: sha512-MfgX49uRrFUTL/HvWtmx3zmpyzMMr4MTj3d527MLlr/4RTT9G/ytFFP7qet2uM2Ve03b+BkpWUpK+lRXnQ+v9w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@babel/plugin-proposal-decorators/-/plugin-proposal-decorators-7.21.0.tgz}
+    id: registry.npmmirror.com/@babel/plugin-proposal-decorators/7.21.0
+    name: '@babel/plugin-proposal-decorators'
+    version: 7.21.0
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/core': registry.npmmirror.com/@babel/core/7.20.7
+      '@babel/helper-create-class-features-plugin': registry.npmmirror.com/@babel/helper-create-class-features-plugin/7.21.0_@babel+core@7.20.7
+      '@babel/helper-plugin-utils': registry.npmmirror.com/@babel/helper-plugin-utils/7.20.2
+      '@babel/helper-replace-supers': registry.npmmirror.com/@babel/helper-replace-supers/7.20.7
+      '@babel/helper-split-export-declaration': registry.npmmirror.com/@babel/helper-split-export-declaration/7.18.6
+      '@babel/plugin-syntax-decorators': registry.npmmirror.com/@babel/plugin-syntax-decorators/7.21.0_@babel+core@7.20.7
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1304,6 +1325,19 @@ packages:
     id: registry.npmmirror.com/@babel/plugin-syntax-class-static-block/7.14.5
     name: '@babel/plugin-syntax-class-static-block'
     version: 7.14.5
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/core': registry.npmmirror.com/@babel/core/7.20.7
+      '@babel/helper-plugin-utils': registry.npmmirror.com/@babel/helper-plugin-utils/7.20.2
+    dev: true
+
+  registry.npmmirror.com/@babel/plugin-syntax-decorators/7.21.0_@babel+core@7.20.7:
+    resolution: {integrity: sha512-tIoPpGBR8UuM4++ccWN3gifhVvQu7ZizuR1fklhRJrd5ewgbkUS+0KVFeWWxELtn18NTLoW32XV7zyOgIAiz+w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@babel/plugin-syntax-decorators/-/plugin-syntax-decorators-7.21.0.tgz}
+    id: registry.npmmirror.com/@babel/plugin-syntax-decorators/7.21.0
+    name: '@babel/plugin-syntax-decorators'
+    version: 7.21.0
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0

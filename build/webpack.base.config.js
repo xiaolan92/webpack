@@ -7,8 +7,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin'),
   path = require('path'),
   HappyPack = require('happypack'),
   HardSourceWebpackPlugin = require('hard-source-webpack-plugin'),
-  BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin,
-  CompressionPlugin = require('compression-webpack-plugin')
+  CompressionPlugin = require('compression-webpack-plugin');
+
 
 const fs = require('fs')
 
@@ -60,7 +60,10 @@ webpackconfig = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2
+              importLoaders: 2,
+              modules: {
+                localIdentName: "[path][name]__[local]--[hash:5]",
+              },
             }
           },
           'postcss-loader'
@@ -109,7 +112,7 @@ webpackconfig = {
           }
         },
         generator: {
-          filename: './images/[name].[chunkhash:8][ext]'
+          filename: './images/[hash][ext][query]'
         },
         include: path.resolve(__dirname, '../src')
       },
@@ -136,7 +139,7 @@ webpackconfig = {
           }
         },
         generator: {
-          filename: './fonts/[chunkhash:8][ext]' // 文件输出目录和命名
+          filename: './fonts/[hash][ext][query]' // 文件输出目录和命名
         }
       },
       {
@@ -148,7 +151,7 @@ webpackconfig = {
           }
         },
         generator: {
-          filename: './media/[chunkhash:8][ext]' // 文件输出目录和命名
+          filename: './media/[hash][ext][query]' // 文件输出目录和命名
         }
       }
     ]
@@ -170,10 +173,6 @@ webpackconfig = {
       'process.env': JSON.stringify(process.env)
     }),
     new Webpack.ProvidePlugin({}),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[chunkhash:8].css',
-      chunkFilename: 'css/[id].[chunkhash:8].css'
-    }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [
         path.resolve(__dirname, '../dist/js/*'),
@@ -190,7 +189,6 @@ webpackconfig = {
       loaders: ['babel-loader']
     }),
 
-    // new BundleAnalyzerPlugin(),
     /**
      *  缓存
      */
@@ -198,9 +196,13 @@ webpackconfig = {
 
     // gzip 压缩
     new CompressionPlugin({
-      test: /\.(js|scss)$/i,
+      test: /\.(js|css)$/i,
+      filename: '[path][base].gz',
+      algorithm: 'gzip',
+      threshold: 10240,
+      minRatio: 0.8,
       exclude: /\/excludes/
-    })
+    }),
   ]
 };
   /**
