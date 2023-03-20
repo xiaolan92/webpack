@@ -5,7 +5,7 @@ export const App: FC = () => {
   return (
     <>
       <div>2common</div>
-      <img src={bg} />
+      <img src={bg} alt='' />
     </>
   );
 };

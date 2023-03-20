@@ -76,20 +76,7 @@ webpackconfig = {
         use: [
           process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
-          {
-            loader: 'less-loader',
-            options: {
-              lessOptions: {
-                // 定制ant的主题
-                modifyVars: {
-                  'primary-color': '#1890ff',
-                  'link-color': '#1890ff',
-                  'border-radius-base': '2px'
-                },
-                javascriptEnabled: true
-              }
-            }
-          }
+          'less-loader'
         ]
       },
 
