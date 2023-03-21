@@ -26,18 +26,15 @@ dotenvFiles.forEach(dotenvFile => {
 });
 
 webpackconfig = {
-  entry: {
-    main: path.resolve(__dirname, '../src/main.tsx')
-  },
-
+  entry: path.resolve(__dirname, '../src/main.tsx'),
   cache: {
     type: 'filesystem' // 使用文件缓存
   },
 
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: 'js/[name].bundle.[chunkhash:8].js',
-    chunkFilename: 'js/[name].chunk.[chunkhash:8].js'
+    filename: 'assets/js/[name].bundle.[chunkhash:8].js',
+    chunkFilename: 'assets/js/[name].chunk.[chunkhash:8].js'
   },
   module: {
     rules: [
@@ -99,7 +96,7 @@ webpackconfig = {
           }
         },
         generator: {
-          filename: './images/[hash][ext][query]'
+          filename: './assets/images/[hash][ext][query]'
         },
         include: path.resolve(__dirname, '../src')
       },
@@ -126,7 +123,7 @@ webpackconfig = {
           }
         },
         generator: {
-          filename: './fonts/[hash][ext][query]' // 文件输出目录和命名
+          filename: './assets/fonts/[hash][ext][query]' // 文件输出目录和命名
         }
       },
       {
@@ -138,7 +135,7 @@ webpackconfig = {
           }
         },
         generator: {
-          filename: './media/[hash][ext][query]' // 文件输出目录和命名
+          filename: './assets/media/[hash][ext][query]' // 文件输出目录和命名
         }
       }
     ]
@@ -162,10 +159,9 @@ webpackconfig = {
     new Webpack.ProvidePlugin({}),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [
-        path.resolve(__dirname, '../dist/js/*'),
-        path.resolve(__dirname, '../dist/images/*'),
-        path.resolve(__dirname, '../dist/font/*')
+        path.resolve(__dirname, '../dist/assets/*'),
       ],
+      cleanAfterEveryBuildPatterns:[path.resolve(__dirname, '../dist/lib/lib.dll.js.gz'),],
       verbose: true,
       dry: false,
       cleanStaleWebpackAssets: true,
@@ -230,8 +226,7 @@ let plugin = new Htmlwebpackplugin({
     minifyJS: true,
     minifyURLs: true,
     removeScriptTypeAttributes: true
-  },
-  chunks: ['main']
+  }
 })
 /**
  * plugin必须在addAsset的前面,否则报错,

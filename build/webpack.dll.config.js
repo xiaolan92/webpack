@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, '../dist')],
+      cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, '../dist/lib/*')],
       verbose: true,
       dry: false,
       cleanStaleWebpackAssets: true,

@@ -4,7 +4,7 @@ import bg from '@/assets/images/bg.png';
 export const App: FC = () => {
   return (
     <>
-      <div>2common</div>
+      <div>2com3</div>
       <img src={bg} alt='' />
     </>
   );

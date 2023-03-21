@@ -3,7 +3,6 @@ const Webpack = require('webpack'),
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
   Baseconfig = require('./webpack.base.config')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
 const { merge } = require('webpack-merge')
 
 module.exports = merge(Baseconfig, {
@@ -59,16 +58,5 @@ module.exports = merge(Baseconfig, {
       filename: 'css/[name].[chunkhash:8].css',
       chunkFilename: 'css/[id].[chunkhash:8].css'
     }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, '../src/assets'), // 复制public下文件
-          to: path.resolve(__dirname, '../dist'), // 复制到dist目录中
-          filter: source => {
-            return !source.includes('index.html') // 忽略index.html
-          }
-        }
-      ]
-    })
   ]
 })

@@ -1,61 +1,11 @@
 - ### 本配置基于 webpack v5.76.1
 
-```
 
-├─build                     webpack配置目录
-│
-│
-├─dist                       打包输出目录
-│  │
-│  └─lib                     第三方包引用目录
-│
-├─src
-│  │——App.vue
-│  │——index.html
-│  │——main.ts                入口文件
-│  │
-│  ├─common                  公共模块
-│  │
-│  ├─components              公共组件
-│  │
-│  │
-│  ├─config                  配置目录
-│  │
-│  │
-│  │
-│  ├─router                  路由文件
-│  │
-│  │
-│  ├─store                   状态管理
-│  |
-│  |——api                    api管理目录
-|  |
-|  |——views                  视图
-|  |
-|  |——static                 静态文件
-|
-|
-|
-|─status                     webpack打包性能分析目录
-|
-|
-|———.babelrc
-│———.eslintignore
-│———.eslintrc.json          eslint规范
-│———.gitignore
-│———LICENSE.txt
-│———package-lock.json
-│———package.json
-│———postcss.config.js
-│———README.md
-
-```
-
-### webpack.dll.config.js 为打包第三方包,打包项目前先`pnpm run dll`,避免每次打包项目时都打包第三方包(jquery,vue,vuex,vue-router 等)
+### webpack.dll.config.js 为打包第三方包,打包项目前先`pnpm run dll`,避免每次打包项目时都打包第三方包
 
 ###
 
-docker 打包镜像命令
-docker build --build-arg BUILD_ENV=dev -t xiaolan/hole:v1.0.0 .
-// 对象不同的环境
-BUILD_ENV=dev
+如果是使用docker,则使用如下命令启动服务:
+` docker-compose --env-file <环境文件> up -d `;
+
+`eg: 'docker-compose --env-file .env.test up -d'`

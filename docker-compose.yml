@@ -6,8 +6,8 @@ services:
       dockerfile: dockerfile
       labels:
         - v1.0.0
-      args:
-        BUILD_ENV: dev
+    environment:
+      BUILD_ENV: ${ENV}
     ports:
       - target: 80
         published: 80
