@@ -1,7 +1,7 @@
 {
-  "name": "webpack",
+  "name": "{{name}}",
   "version": "5.76.1",
-  "description": "webpack v5.76.1 ",
+  "description": "{{description}}",
   "main": "main.js",
   "scripts": {
     "test": "jest",
@@ -15,7 +15,7 @@
     "eslint": "eslint --fix --color  src/ --ext .js,.ts,.tsx",
     "prepare": "husky install"
   },
-  "author": "xiaolan",
+  "author": "{{author}}",
   "license": "ISC",
   "lint-staged": {
     "*.{js,ts,tsx}": "pnpm run eslint"
