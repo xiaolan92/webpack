@@ -107,12 +107,13 @@
       "@typescript-eslint/parser": [".js", ".ts", ".tsx"]
     },
     "import/resolver": {
-      "node": {
+        "node": {
         "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"],
         "paths": ["src"]
       },
       "alias": {
-        "map": [["@", "./src"]]
+        "map": [["@", "./src/"]],
+        "extensions": [".ts", ".js", ".tsx"]
       }
     },
     "html/html-extensions": [".html"],

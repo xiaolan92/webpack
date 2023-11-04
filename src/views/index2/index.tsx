@@ -7,7 +7,7 @@ import { Decrement } from './thunks';
 import { getNameLoading } from './selectors';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
-export const Index2: FC = () => {
+const Index2: FC = () => {
   const ref = useRef(null);
   const params = useParams();
   const dispatch = useDispatch();
@@ -35,6 +35,8 @@ export const Index2: FC = () => {
     </Container>
   );
 };
+
+export default Index2;
 
 const Container = styled.div`
   height: 2000px;
