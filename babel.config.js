@@ -23,6 +23,7 @@ module.exports = {
     '@babel/plugin-proposal-object-rest-spread',
     '@babel/plugin-proposal-unicode-property-regex',
     isDEV && require.resolve('react-refresh/babel'),
-    ["@babel/plugin-proposal-decorators", { legacy: true }]
+    ["@babel/plugin-proposal-decorators", { legacy: true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": false }]
   ].filter(Boolean)
 }

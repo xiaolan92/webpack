@@ -16,10 +16,10 @@
     "experimentalDecorators": true,
     "strictFunctionTypes": false,
     "removeComments": true,
-    "suppressImplicitAnyIndexErrors": true,
     "allowJs": true,
     "module": "es2022",
     "target": "es6",
+    "useDefineForClassFields": true,
     "moduleResolution": "node",
     "noImplicitAny": true,
     "lib": [
