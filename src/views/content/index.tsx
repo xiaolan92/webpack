@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
@@ -33,13 +32,8 @@ export const Content: FC = () => {
   animate();
 
   return (
-    <Container>
+    <div>
       <Outlet />
-    </Container>
+    </div>
   );
 };
-
-const Container = styled.div`
-  background: white;
-  width: calc(100% - 207px);
-`;

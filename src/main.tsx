@@ -5,6 +5,7 @@ import { ConfigProvider } from 'antd';
 import Router from './routes';
 import { BrowserRouter } from 'react-router-dom';
 import './components/icon/index';
+import '@/styles/index.css';
 
 const container = document.getElementById('root');
 const root = createRoot(container as HTMLElement);

@@ -48,25 +48,11 @@ webpackconfig = {
         loader: 'ts-loader',
         exclude: /node_modules/
       },
-
       {
         test: /\.css$/,
-        include: [path.resolve(__dirname, '../src')],
-        use: [
-          process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-              modules: {
-                localIdentName: "[path][name]__[local]--[hash:5]",
-              },
-            }
-          },
-          'postcss-loader'
-        ]
+        exclude: /node_modules/,
+        use: [ 'style-loader', 'css-loader', 'postcss-loader' ]
       },
-
       {
         test: /\.less$/,
         include: [path.resolve(__dirname, '../src')],
